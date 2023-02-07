@@ -1,6 +1,4 @@
-# e_cart
-
-A new Flutter project.
+# E_cart
 ![sign_in](https://user-images.githubusercontent.com/80575917/217295403-f199d5af-bd91-46c8-b22f-08b690d4cd31.png)
 ## Getting Started
 
