@@ -14,7 +14,6 @@ class HomePage extends StatelessWidget {
           child: Text("Welcome to 30 days of code"),
         ),
       ),
-      drawer: Drawer(),
     );
   }
 }
