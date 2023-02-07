@@ -1,3 +1,5 @@
+import 'package:e_cart/Home_Page.dart';
+import 'package:e_cart/utils/routes.dart';
 import 'package:flutter/material.dart';
 
 class Loginpage extends StatelessWidget {
@@ -45,7 +47,7 @@ class Loginpage extends StatelessWidget {
                       child: Text("Log In",style: TextStyle(fontSize: 17),),
                     style: TextButton.styleFrom(minimumSize: Size(150, 40)),
                     onPressed: (){
-                      print("login clicking");
+                      Navigator.pushNamed(context, MyRoutes.homeRoute);
                     },
                   )
                 ],),
