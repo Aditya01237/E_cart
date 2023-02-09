@@ -68,10 +68,10 @@ class _LoginpageState extends State<Loginpage> {
                       validator: (value)
                       {
                         if(value == null || value.isEmpty){
-                          return "User Name Cannot Be Empty";
+                          return "Password Cannot Be Empty";
                         }
                         else if(value.length < 6){
-                          return "User Name Cannot Be Empty";
+                          return "Password Length Should Be Atleast 6";
                         }
                         return null;
                       },

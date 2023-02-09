@@ -1,5 +1,5 @@
-import 'package:e_cart/Home_Page.dart';
-import 'package:e_cart/login_page.dart';
+import 'package:e_cart/pages/Home_Page.dart';
+import 'package:e_cart/pages/login_page.dart';
 import 'package:e_cart/utils/routes.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
-      initialRoute: '/',
+      initialRoute: MyRoutes.homeRoute,
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.
         '/': (context) => Loginpage(),
