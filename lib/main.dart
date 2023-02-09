@@ -10,14 +10,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
       initialRoute: '/',
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.
-        '/': (context) => const Loginpage(),
+        '/': (context) => Loginpage(),
         // When navigating to the "/second" route, build the SecondScreen widget.
         MyRoutes.homeRoute: (context) => const HomePage(),
-        MyRoutes.loginRoute: (context) => const Loginpage(),
+        MyRoutes.loginRoute: (context) => Loginpage(),
       },
     );
   }

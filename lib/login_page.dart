@@ -1,9 +1,20 @@
-import 'package:e_cart/Home_Page.dart';
 import 'package:e_cart/utils/routes.dart';
 import 'package:flutter/material.dart';
 
-class Loginpage extends StatelessWidget {
-  const Loginpage({Key? key}) : super(key: key);
+class Loginpage extends StatefulWidget {
+  @override
+  State<Loginpage> createState() => _LoginpageState();
+}
+
+class _LoginpageState extends State<Loginpage> {
+  final _formkey = GlobalKey<FormState>();
+
+  moveToHome(BuildContext context)
+  {
+      if(_formkey.currentState!.validate()){
+        Navigator.pushNamed(context, MyRoutes.homeRoute);
+      }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,47 +23,86 @@ class Loginpage extends StatelessWidget {
       body: Material(
         color: Colors.white,
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Image.asset("assets/images/loginpage.jpg",
-              fit: BoxFit.cover,
-              scale: .1,
-              ),
-              Text("Welcome",
-                style: TextStyle(
-                  fontSize:32,
-                  fontWeight: FontWeight.bold,
+          child: Form(
+            key: _formkey,
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 40,
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 32.0),
-                child: Column(children: [
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: "Enter Username",
-                      labelText: "Username",
+                Image.asset("assets/images/loginpage.jpg",
+                fit: BoxFit.cover,
+                scale: .1,
+                ),
+                Text("Welcome Back",
+                  style: TextStyle(
+                    fontSize:32,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 20.0,horizontal: 32.0),
+                  child: Column(children: [
+                    TextFormField(
+                      decoration: InputDecoration(
+                        hintText: "Enter Username",
+                        labelText: "Username",
+                      ),
+                      validator: (value)
+                      {
+                        if(value == null || value.isEmpty){
+                          return "User Name Cannot Be Empty";
+                        }
+                        return null;
+                      },
                     ),
-                  ),
-                  TextFormField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      hintText: "Enter Password",
-                      labelText: "Password",
+                    SizedBox(
+                      height: 20.0,
                     ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  ElevatedButton(
-                      child: Text("Log In",style: TextStyle(fontSize: 17),),
-                    style: TextButton.styleFrom(minimumSize: Size(150, 40)),
-                    onPressed: (){
-                      Navigator.pushNamed(context, MyRoutes.homeRoute);
-                    },
-                  )
-                ],),
-              )
-            ],
+                    TextFormField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        hintText: "Enter Password",
+                        labelText: "Password",
+                      ),
+                      validator: (value)
+                      {
+                        if(value == null || value.isEmpty){
+                          return "User Name Cannot Be Empty";
+                        }
+                        else if(value.length < 6){
+                          return "User Name Cannot Be Empty";
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(
+                      height: 30.0,
+                    ),
+                    Material(
+                      color: Colors.deepPurple,
+                      borderRadius: BorderRadius.circular(12),
+                      child: InkWell(
+                        onTap: () => moveToHome(context),
+                        child: Container(
+                          height: 50,
+                          width: 150,
+                          alignment: Alignment.center,
+                          child: Text(
+                            "LogIn",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],),
+                )
+              ],
+            ),
           ),
         )
       ),
